@@ -3,6 +3,7 @@ from collections import defaultdict
 from dungeonsheets import features as feats
 from dungeonsheets import spells, weapons
 from dungeonsheets.content_registry import default_content_registry
+from dungeonsheets.spells.spells_p import ProtectionFromEnergy
 
 
 default_content_registry.add_module(__name__)
@@ -486,6 +487,41 @@ class Kalashtar(Race):
         feats.SeveredFromDreams,
     )
 
+class Shifter(Race):
+    name = "Shifter"
+    size = "medium"
+    speed = 30
+    languages = (
+        "Common",
+    )
+    features = (
+        feats.Darkvision,
+        feats.Shifting,
+    )
+
+class BeasthideShifter(Shifter):
+    name = "Beasthide Shifter"
+    skill_proficiencies = ("athletics",)
+    features = Shifter.features + (feats.ShiftingFeatureBeasthide,)
+
+class LongtoothShifter(Shifter):
+    name = "Longtooth Shifter"
+    skill_proficiencies = ("intimidation",)
+    features = Shifter.features + (feats.ShiftingFeatureLongtooth,)
+
+class SwiftstrideShifter(Shifter):
+    name = "Swiftstride Shifter"
+    skill_proficiencies = ("acrobatics",)
+    features = Shifter.features + (feats.ShiftingFeatureSwiftstride,)
+
+class WildhuntShifter(Shifter):
+    name = "Wildhunt Shifter"
+    skill_proficiencies = ("survival",)
+    features = Shifter.features + (feats.ShiftingFeatureWildhunt,)
+
+
+
+
 
 class BugBear(Race):
     name = "BugBear"
@@ -601,7 +637,7 @@ EE_races = [Aarakocra, DeepGnome, AirGenasi, FireGenasi, EarthGenasi, WaterGenas
 
 MONSTER_races = [BugBear, Goblin, HobGoblin, Kobold, Orc, PureBlood]
 
-RFTLW_races = [Kalashtar]
+RFTLW_races = [Kalashtar, Shifter, WildhuntShifter, SwiftstrideShifter, LongtoothShifter, BeasthideShifter]
 
 # Guildmaster's Guide to Ravnica
 GGTR_races = [Goblin]

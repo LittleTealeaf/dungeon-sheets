@@ -821,6 +821,45 @@ class SeveredFromDreams(Feature):
     name = "Severed from Dreams"
     source = "Race (Kalashtar)"
 
+# Shifter
+class Shifting(Feature):
+    """
+    As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to your level + your Constitution modifier (minimum of 1 temporary hit point). You also gain additional benefits that depend on your shifter subrace, described below.
+    
+    Once you shift, you can't do so again until you finish a short or long rest.
+
+    """
+    name = "Shifting"
+    source = "Race (Shifter)"
+
+class ShiftingFeatureBeasthide(Feature):
+    """
+    Whenever you shift, you gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class.
+    """
+    name = "Shifting Feature"
+    source = "Race (Beasthide Shifter)"
+
+class ShiftingFeatureLongtooth(Feature):
+    """
+    While shifted, you can use your elongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.
+    """
+    name = "Shifting Feature"
+    source = "Race (Longtooth Shifter)"
+
+class ShiftingFeatureSwiftstride(Feature):
+    """
+    While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks.
+    """
+    name = "Shifting Feature"
+    source = "Race (Swiftstride Shifter)"
+
+class ShiftingFeatureWildhunt(Feature):
+    """
+    While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you're incapacitated.
+    """
+    name = "Shifting Feature"
+    source = "Race (Wildhunt Shifter)"
+
 
 # monsterous races
 # bugbear
