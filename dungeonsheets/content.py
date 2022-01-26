@@ -84,7 +84,7 @@ class Content(ABC):
             Mechanic = mechanic
         elif SuperClass is not None and isinstance(mechanic, SuperClass):
             # Has been instantiated for some reason
-            Mechanic = type(Mechanic)
+            Mechanic = type(mechanic)
         else:
             try:
                 # Retrieve pre-defined mechanic
@@ -105,7 +105,6 @@ class Content(ABC):
                 attrs = {"name": mechanic_name, "__doc__": msg, "source": "Unknown"}
                 Mechanic = type(class_name, (SuperClass,), attrs)
         return Mechanic
-    
 
 
 class Creature(Content):
@@ -188,6 +187,19 @@ class Creature(Content):
         return self.perception.modifier + 10
 
     @property
+    def passive_perception(self):
+        """Just a wrapper around passive wisdom."""
+        return self.passive_wisdom
+
+    @property
+    def passive_insight(self):
+        return self.insight.modifier + 10
+
+    @property
+    def passive_investigation(self):
+        return self.investigation.modifier + 10
+
+    @property
     def abilities(self):
         return [self.strength, self.dexterity, self.constitution,
                 self.intelligence, self.wisdom, self.charisma]
@@ -200,3 +212,7 @@ class Creature(Content):
                 self.medicine, self.nature, self.perception,
                 self.performance, self.persuasion, self.religion,
                 self.sleight_of_hand, self.stealth, self.survival]
+    
+    @property
+    def is_spellcaster(self):
+        raise NotImplementedError
